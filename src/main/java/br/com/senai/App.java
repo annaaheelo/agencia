@@ -2,8 +2,7 @@ package br.com.senai;
 
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.util.Arrays;
+
 
 import br.com.senai.enuns.Estado;
 import br.com.senai.enuns.Genero;
@@ -13,6 +12,7 @@ import br.com.senai.models.Escolaridade;
 
 public class App 
 {
+    
     public static void main( String[] args ){
    
         Endereco endereco = new Endereco();
@@ -30,15 +30,19 @@ public class App
         yasmin.nacionalidade = "Brasil";
         yasmin.endereco = endereco;
 
-        Escolaridade e1 = new Escolaridade();
+         Candidato a = new Candidato();
+        a.nomeCompleto = "a";
+        a.dataNascimento = LocalDate.of(2008, 07, 26);
+
+       Escolaridade e1 = new Escolaridade();
         e1.nomeCurso = "Sistema para Internet";
-        e1.nomeInstituição = "Senai";
+       e1.nomeInstituição = "Senai";
         e1.dataInicio = LocalDate.of(2020, 10, 01 );
         e1.dataFim = LocalDate.of(2023, 06, 10);
 
         Escolaridade e2 = new Escolaridade();
         e2.nomeCurso = "Engenharia Civil";
-        e2.nomeInstituição = "IFPI - Inst. Federal do Piauí";
+       e2.nomeInstituição = "IFPI - Inst. Federal do Piauí";
         e2.dataInicio = LocalDate.of(2020, 02, 01);
         e2.dataFim = LocalDate.of(2023, 06, 10);
 
@@ -46,14 +50,26 @@ public class App
         //list.add(e1);
         //list.add(e2);
 
-        yasmin.escolaridades = Arrays.asList(e1,e2);
+        //yasmin.escolaridades = Arrays.asList(e1,e2);
 
         System.out.println("Nome Completo "+yasmin.nomeCompleto);
-        System.out.println("Idade: "+ Period.between(yasmin.dataNascimento, LocalDate.now()).getYears());
-        System.out.println("Endereço:" + yasmin.endereco.logradouro);
+        System.out.println("Idade: "+yasmin.calcularIdade());
+        System.out.println(" e maior de idade: " +yasmin.eMaiorDeIdade() );
 
-        for (Escolaridade escolaridade : yasmin.escolaridades){
-            System.out.println(escolaridade.nomeCurso+" - "+ escolaridade.nomeInstituição);
+        System.out.println("***********************************");
+
+        System.out.println("Nome completo "+a.nomeCompleto);
+        System.out.println("Idade: "+a.calcularIdade());
+        System.out.println( " e maior de idade: " +a.eMaiorDeIdade());
+
+
+         for (Escolaridade escolaridade : yasmin.escolaridades){
+            System.out.println(escolaridade.nomeCurso+" - "
+            + escolaridade.nomeInstituição);
+
+            
+            }
         }
+
     }
-}
+
