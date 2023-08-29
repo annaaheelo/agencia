@@ -13,7 +13,7 @@ git init
 git add . (o ponto informar que irá adicionar tudo)
 
 ## Colocar um comentario no versionamento
-git commint -m "coloque o seu comentário"
+git commit -m "coloque o seu comentário"
 
 ## Criar um repositorio na minha conta do GitHub com nome do projeto
 Ex : agencia / agenciaRH ou agencia-rh
